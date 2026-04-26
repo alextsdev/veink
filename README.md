@@ -6,7 +6,7 @@
 
 [![Astro](https://img.shields.io/badge/Astro-6.0%2B-ff5d01?logo=astro&logoColor=white)](https://astro.build)
 [![License](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-In%20Development-d40000)](https://github.com/Alex/veink-studio)
+[![Status](https://img.shields.io/badge/Status-In%20Development-d40000)](https://github.com/alextsdev/veink-studio)
 
 VeInk Studio is a premium, high-performance landing page for a modern tattoo collective. Built with **Astro 6**, it features a sleek dark aesthetic, fluid animations, and a focus on artistic storytelling.
 
