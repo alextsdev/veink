@@ -10,6 +10,8 @@
 
 VeInk Studio is a premium, high-performance landing page for a modern tattoo collective. Built with **Astro 6**, it features a sleek dark aesthetic, fluid animations, and a focus on artistic storytelling.
 
+[View Live Demo](https://alextsdev.github.io/veink-studio/) · [Report Bug](https://github.com/alextsdev/veink-studio/issues) · [Request Feature](https://github.com/alextsdev/veink-studio/issues)
+
 ---
 
 ## ✨ Features
