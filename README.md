@@ -1,46 +1,38 @@
-# Astro Starter Kit: Basics
+# ✦ VeInk Studio — Where ink meets identity
 
-```sh
-npm create astro@latest -- --template basics
-```
+<p align="center">
+  <img src="public/images/veink-studio.png" alt="VeInk Studio — Where ink meets identity" width="100%">
+</p>
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+[![Astro](https://img.shields.io/badge/Astro-6.0%2B-ff5d01?logo=astro&logoColor=white)](https://astro.build)
+[![License](https://img.shields.io/badge/License-MIT-black.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-In%20Development-d40000)](https://github.com/Alex/veink-studio)
 
-## 🚀 Project Structure
+VeInk Studio is a premium, high-performance landing page for a modern tattoo collective. Built with **Astro 6**, it features a sleek dark aesthetic, fluid animations, and a focus on artistic storytelling.
 
-Inside of your Astro project, you'll see the following folders and files:
+---
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+## ✨ Features
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+- **🎯 Artistic Narrative**: A carefully crafted "About" section that highlights the studio's philosophy.
+- **🎨 Interactive Gallery**: A modern grid-based portfolio with a built-in lightbox for detailed work viewing.
+- **⚡ Performance First**: Optimized images and zero-JS (mostly) implementation thanks to Astro's islands architecture.
+- **📱 Ultra Responsive**: Fluid layout that adapts seamlessly from high-res monitors to mobile devices.
+- **📅 Booking Integration**: Functional consultation form to streamline the client onboarding process.
+- **🌑 Premium Aesthetics**: Custom-tailored dark mode with "Bebas Neue" typography and subtle grain textures.
 
-## 🧞 Commands
+---
 
-All commands are run from the root of the project, from a terminal:
+## 🛠️ Tech Stack
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- **Framework:** [Astro 6.0+](https://astro.build/)
+- **Styling:** Vanilla CSS (Modern CSS properties & Variables)
+- **Icons:** Lucide Icons
+- **Fonts:** [Bebas Neue](https://fonts.google.com/specimen/Bebas+Neue) & [Inter](https://fonts.google.com/specimen/Inter)
+- **Deployment:** [Vercel](https://vercel.com) / [Netlify](https://www.netlify.com)
 
-## 👀 Want to learn more?
+---
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+<p align="center">
+  Developed by <a href="https://github.com/alextsdev">Alextsdev</a>
+</p>

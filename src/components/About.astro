@@ -1,0 +1,140 @@
+---
+import { Image } from "astro:assets";
+import studioAboutImg from "../assets/images/studio-about.png";
+---
+
+<section class="about" id="about">
+    <div class="about-image">
+        <Image src={studioAboutImg} alt="VeInk Studio Interior" />
+    </div>
+    <div class="about-text">
+        <span class="subtitle">Our Story</span>
+        <h2>Crafting Identity Through Ink</h2>
+        <p>
+            Founded on the principles of artistic excellence and clinical
+            precision, VeInk Studio is more than just a tattoo shop. We are a
+            collective of visionaries dedicated to transforming your ideas into
+            permanent masterpieces.
+        </p>
+        <p>
+            Whether it's your first piece or a full body sleeve, we approach
+            every project with the same passion and attention to detail that has
+            made us a benchmark in the industry.
+        </p>
+        <a href="#book" class="booking">Book a Consultation</a>
+    </div>
+</section>
+
+<style>
+    .about {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 100px;
+        align-items: center;
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 140px 30px;
+    }
+
+    .about::after {
+        content: "EST. 2024";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-family: var(--font-heading);
+        font-size: 12vw;
+        color: rgba(255, 255, 255, 0.04);
+        z-index: -1;
+        white-space: nowrap;
+        pointer-events: none;
+        line-height: 0.8;
+    }
+
+    .about-image {
+        position: relative;
+        padding: 20px;
+    }
+
+    .about-image img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 2px;
+        transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .about-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60px;
+        height: 60px;
+        border-top: 2px solid var(--accent);
+        border-left: 2px solid var(--accent);
+        z-index: 1;
+    }
+
+    .about-image::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 60px;
+        height: 60px;
+        border-bottom: 2px solid var(--accent);
+        border-right: 2px solid var(--accent);
+        z-index: 1;
+    }
+
+    .about-text .subtitle {
+        margin-bottom: 20px;
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-size: 0.9rem;
+        display: block;
+    }
+
+    .about-text h2 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin: 0 0 30px 0;
+        font-family: var(--font-heading);
+        text-transform: uppercase;
+    }
+
+    .about-text p {
+        margin-bottom: 30px;
+        color: var(--text-muted);
+    }
+
+    .booking {
+        display: inline-block;
+        border: 1px solid var(--accent);
+        padding: 12px 30px;
+        text-decoration: none;
+        color: var(--text);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-family: var(--font-heading);
+        transition: 0.3s;
+    }
+
+    .booking:hover {
+        background: var(--accent);
+        color: white;
+    }
+
+    @media (max-width: 900px) {
+        .about {
+            grid-template-columns: 1fr;
+            gap: 60px;
+            text-align: center;
+        }
+
+        .about::after {
+            font-size: 25vw;
+        }
+    }
+</style>

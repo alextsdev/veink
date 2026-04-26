@@ -1,23 +1,271 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import Lightbox from "../components/Lightbox.astro";
+import ArtistModal from "../components/ArtistModal.astro";
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/images/veink-logo.svg" />
+		<link rel="apple-touch-icon" href="/images/veink-logo.png" />
+		<meta name="theme-color" content="#050505" />
+		<meta name="author" content="VeInk Studio" />
+		<meta
+			name="description"
+			content="VeInk Studio - Where ink meets identity. Premium tattoo studio in Murcia, Spain."
+		/>
+		<meta
+			name="keywords"
+			content="VeInk Studio, Tattoo Murcia, Tattoo Shop Spain, Custom Tattoo, Fine Line Tattoo, Realism Tattoo"
+		/>
+		<title>VeInk Studio | Premium Tattoo Art</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=block"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
+		<div class="preloader" id="preloader">
+			<div class="preloader-content" id="preloader-content" style="opacity: 0;">
+				<div class="logo">Ve<span>Ink</span></div>
+				<div class="loader-bar"></div>
+			</div>
+		</div>
+
+		<Navbar />
+
 		<slot />
+
+		<Footer />
+
+		<Lightbox />
+
+		<ArtistModal />
+
+		<style is:global>
+			/* Preloader Styles */
+			.preloader {
+				position: fixed;
+				inset: 0;
+				background: #050505;
+				z-index: 10000;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				transition: opacity 0.8s ease, visibility 0.8s;
+			}
+
+			.preloader.hidden {
+				opacity: 0;
+				visibility: hidden;
+			}
+
+			.preloader-content {
+				text-align: center;
+				transition: opacity 0.5s ease;
+			}
+
+			.preloader .logo {
+				font-size: 4rem;
+				font-family: "Bebas Neue", sans-serif;
+				letter-spacing: 5px;
+				margin-bottom: 20px;
+			}
+
+			.loader-bar {
+				width: 100px;
+				height: 2px;
+				background: rgba(255, 255, 255, 0.1);
+				margin: 0 auto;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.loader-bar::after {
+				content: '';
+				position: absolute;
+				left: -100%;
+				width: 100%;
+				height: 100%;
+				background: var(--accent);
+				animation: loading 1.5s infinite;
+			}
+
+			@keyframes loading {
+				0% { left: -100%; }
+				50% { left: 0; }
+				100% { left: 100%; }
+			}
+		</style>
+
+		<script>
+			// Preloader Logic - Wait for Fonts
+			const preloader = document.getElementById('preloader');
+			const preloaderContent = document.getElementById('preloader-content');
+
+			const hidePreloader = () => {
+				setTimeout(() => {
+					if (preloader) preloader.classList.add('hidden');
+				}, 1000);
+			};
+
+			// Wait for both window load and fonts to be ready
+			Promise.all([
+				new Promise(resolve => window.addEventListener('load', resolve)),
+				document.fonts.ready
+			]).then(() => {
+				if (preloaderContent) preloaderContent.style.opacity = '1';
+				hidePreloader();
+			});
+			const navbar = document.getElementById("navbar");
+			window.addEventListener("scroll", () => {
+				if (navbar && window.scrollY > 50) {
+					navbar.classList.add("scrolled");
+				} else if (navbar) {
+					navbar.classList.remove("scrolled");
+				}
+			});
+
+			const hamburger = document.getElementById("hamburger");
+			const navMenu = document.getElementById("nav-menu");
+			const navLinks = document.querySelectorAll("#nav-menu a");
+
+			if (hamburger && navMenu) {
+				hamburger.addEventListener("click", () => {
+					hamburger.classList.toggle("active");
+					navMenu.classList.toggle("active");
+					document.body.style.overflow = navMenu.classList.contains(
+						"active",
+					)
+						? "hidden"
+						: "auto";
+				});
+
+				navLinks.forEach((link) => {
+					link.addEventListener("click", () => {
+						hamburger.classList.remove("active");
+						navMenu.classList.remove("active");
+						document.body.style.overflow = "auto";
+					});
+				});
+			}
+
+			const lightbox = document.getElementById("lightbox");
+			const lightboxImg = document.getElementById(
+				"lightbox-img",
+			) as HTMLImageElement;
+			const lightboxClose = document.getElementById("lightbox-close");
+			const galleryItems = document.querySelectorAll(".gallery-item");
+
+			if (lightbox && lightboxImg && lightboxClose) {
+				galleryItems.forEach((item) => {
+					item.addEventListener("click", () => {
+						const img = item.querySelector("img");
+						if (img) {
+							lightboxImg.src = img.src;
+							lightbox.classList.add("active");
+							document.body.style.overflow = "hidden";
+						}
+					});
+				});
+
+				const closeLightbox = () => {
+					lightbox.classList.remove("active");
+					document.body.style.overflow = "auto";
+				};
+
+				lightboxClose.addEventListener("click", closeLightbox);
+				lightbox.addEventListener("click", (e) => {
+					if (e.target === lightbox) closeLightbox();
+				});
+
+				window.addEventListener("keydown", (e) => {
+					if (
+						e.key === "Escape" &&
+						lightbox.classList.contains("active")
+					) {
+						closeLightbox();
+					}
+				});
+			}
+
+			const artistModal = document.getElementById("artist-modal");
+			const artistModalClose =
+				document.getElementById("artist-modal-close");
+			const artistCards = document.querySelectorAll(".artist-card");
+			const modalImg = document.getElementById(
+				"modal-artist-img",
+			) as HTMLImageElement;
+			const modalName = document.getElementById("modal-artist-name");
+			const modalStyle = document.getElementById("modal-artist-style");
+			const modalDesc = document.getElementById(
+				"modal-artist-description",
+			);
+			const modalBookBtn = document.getElementById("modal-book-btn");
+
+			if (
+				artistModal &&
+				artistModalClose &&
+				modalImg &&
+				modalName &&
+				modalStyle &&
+				modalDesc &&
+				modalBookBtn
+			) {
+				artistCards.forEach((card) => {
+					card.addEventListener("click", () => {
+						const img = card.querySelector("img");
+						const name = card.querySelector("h3");
+						const style = card.getAttribute("data-style");
+						const desc = card.getAttribute("data-description");
+
+						if (img && name) {
+							modalImg.src = img.src;
+							modalName.innerText = name.innerText;
+							modalStyle.innerText = style || "";
+							modalDesc.innerText = desc || "";
+
+							artistModal.classList.add("active");
+							document.body.style.overflow = "hidden";
+						}
+					});
+				});
+
+				const closeArtistModal = () => {
+					artistModal.classList.remove("active");
+					document.body.style.overflow = "auto";
+				};
+
+				artistModalClose.addEventListener("click", closeArtistModal);
+				artistModal.addEventListener("click", (e) => {
+					if (e.target === artistModal) closeArtistModal();
+				});
+
+				modalBookBtn.addEventListener("click", closeArtistModal);
+			}
+
+			const observerOptions = {
+				threshold: 0.1,
+			};
+
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("visible");
+					}
+				});
+			}, observerOptions);
+
+			document.querySelectorAll("section").forEach((section) => {
+				observer.observe(section);
+			});
+		</script>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

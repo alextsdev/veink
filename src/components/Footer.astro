@@ -1,0 +1,127 @@
+---
+
+---
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <a href="/" class="logo">Ve<span>Ink</span></a>
+            <p>
+                Experience the art of tattooing where tradition meets modern
+                identity. Every piece tells a story.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <h4>Studio</h4>
+            <ul>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#artists">The Artists</a></li>
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#gallery">Recent Work</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-links" id="contact">
+            <h4>Connect</h4>
+            <ul>
+                <li>
+                    <a href="mailto:veinkstudio@veinktattoo.com"
+                        >veinkstudio@veinktattoo.com</a
+                    >
+                </li>
+                <li><a href="tel:+34900000000">+34 900 000 000</a></li>
+                <li><a href="https://instagram.com/veinkstudio" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                <li><a href="https://tiktok.com/@veinkstudio" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>
+            &copy; {new Date().getFullYear()} VeInk Studio. All rights reserved.
+        </p>
+    </div>
+</footer>
+
+<style>
+    .footer {
+        padding: 100px 30px 40px;
+        background: #080808;
+        border-top: 1px solid var(--border);
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 60px;
+    }
+
+    .footer-brand .logo {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+        color: var(--text);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        margin-bottom: 20px;
+    }
+
+    .footer-brand .logo span {
+        color: var(--accent);
+    }
+
+    .footer-brand p {
+        color: var(--text-muted);
+        max-width: 300px;
+    }
+
+    .footer-links h4 {
+        margin-bottom: 25px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-family: var(--font-heading);
+    }
+
+    .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 12px;
+    }
+
+    .footer-links a {
+        color: var(--text-muted);
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    .footer-links a:hover {
+        color: var(--accent);
+        transform: translateX(8px);
+    }
+
+    .footer-bottom {
+        margin-top: 80px;
+        padding-top: 30px;
+        border-top: 1px solid var(--border);
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+    }
+
+    @media (max-width: 900px) {
+        .footer-container {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+    }
+</style>

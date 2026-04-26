@@ -1,11 +1,143 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import ArtistCard from "../components/ArtistCard.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import GalleryItem from "../components/GalleryItem.astro";
+import TestimonialCard from "../components/TestimonialCard.astro";
+import FAQ from "../components/FAQ.astro";
+import BookingForm from "../components/BookingForm.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Artist Images
+import alexImg from "../assets/images/veink-alex.png";
+import maraImg from "../assets/images/veink-mara.png";
+import jhonImg from "../assets/images/veink-jhon.png";
+
+// Gallery Images
+import gallery1 from "../assets/images/tattoos/veink-fine-line.png";
+import gallery2 from "../assets/images/tattoos/veink-realism.png";
+import gallery3 from "../assets/images/tattoos/veink-abstract.png";
+import gallery4 from "../assets/images/tattoos/veink-portraits.jpg";
+import gallery5 from "../assets/images/tattoos/veink-blackwork.png";
+import gallery6 from "../assets/images/tattoos/veink-dark.png";
 ---
 
 <Layout>
-	<Welcome />
+    <Hero />
+
+    <About />
+
+    <section class="services" id="services">
+        <div class="section-header">
+            <span class="subtitle">What We Do</span>
+            <h2>Our Services</h2>
+        </div>
+
+        <div class="services-grid">
+            <ServiceCard
+                title="Custom Design"
+                description="Unique, hand-drawn designs tailored specifically to your vision and anatomy."
+                icon="✦"
+            />
+            <ServiceCard
+                title="Fine Line"
+                description="Delicate, precise linework that stands the test of time with minimal aging."
+                icon="✦"
+            />
+            <ServiceCard
+                title="Cover Ups"
+                description="Expertly transforming old ink into something you'll be proud to wear again."
+                icon="✦"
+            />
+        </div>
+    </section>
+
+    <section class="artists" id="artists">
+        <div class="section-header">
+            <span class="subtitle">The Visionaries</span>
+            <h2>The Artists</h2>
+        </div>
+
+        <div class="artist-grid">
+            <ArtistCard
+                name="Alex Black"
+                style="Blackwork / Fine line"
+                image={alexImg}
+                description="Specialist in fine line and blackwork. With over 10 years of experience, Alex creates delicate pieces with surgical precision and timeless elegance."
+            />
+            <ArtistCard
+                name="Mara Ink"
+                style="Realism / Portraits"
+                image={maraImg}
+                description="Master of realism and portraits. Mara's ability to capture emotion and hyper-realistic detail on skin has made her a reference in the industry."
+            />
+            <ArtistCard
+                name="Jhon Vein"
+                style="Dark / Abstract"
+                image={jhonImg}
+                description="Expert in dark and abstract art. Jhon pushes the boundaries of traditional tattooing with bold, expressive designs and high-contrast compositions."
+            />
+        </div>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <div class="section-header">
+            <span class="subtitle">Our Work</span>
+            <h2>Selected Works</h2>
+        </div>
+
+        <div class="gallery-grid">
+            <GalleryItem
+                image={gallery1}
+                alt="Fine line tattoo"
+            />
+            <GalleryItem
+                image={gallery2}
+                alt="Realism tattoo"
+            />
+            <GalleryItem
+                image={gallery3}
+                alt="Abstract tattoo"
+            />
+            <GalleryItem
+                image={gallery4}
+                alt="Portraits tattoo"
+            />
+            <GalleryItem
+                image={gallery5}
+                alt="Blackwork tattoo"
+            />
+            <GalleryItem
+                image={gallery6}
+                alt="Dark tattoo"
+            />
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="section-header">
+            <span class="subtitle">Client Voice</span>
+            <h2>Testimonials</h2>
+        </div>
+
+        <div class="testimonials-grid">
+            <TestimonialCard
+                quote="Best studio in town. The attention to detail is insane and the atmosphere is very professional."
+                author="David R."
+            />
+            <TestimonialCard
+                quote="Alex did an incredible job with my fine line tattoo. It's been a year and it still looks perfect."
+                author="Sarah M."
+            />
+            <TestimonialCard
+                quote="The creative process was amazing. They really took the time to understand what I wanted."
+                author="Lucas G."
+            />
+        </div>
+    </section>
+
+    <FAQ />
+
+    <BookingForm />
 </Layout>

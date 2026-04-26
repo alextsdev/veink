@@ -1,0 +1,125 @@
+---
+
+---
+
+<div class="modal" id="artist-modal">
+    <div class="modal-content">
+        <button class="modal-close" id="artist-modal-close">&times;</button>
+        <div class="modal-body">
+            <div class="modal-img">
+                <img src="" alt="" id="modal-artist-img" />
+            </div>
+            <div class="modal-info">
+                <span class="modal-style" id="modal-artist-style"></span>
+                <h2 id="modal-artist-name"></h2>
+                <p id="modal-artist-description"></p>
+                <a href="#book" class="booking" id="modal-book-btn"
+                    >Book with Artist</a
+                >
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 2000;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        backdrop-filter: blur(10px);
+    }
+
+    .modal.active {
+        display: flex;
+        animation: fadeIn 0.4s ease;
+    }
+
+    .modal-content {
+        background: var(--surface);
+        width: 100%;
+        max-width: 900px;
+        position: relative;
+        border: 1px solid var(--border);
+        animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .modal-body {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+    }
+
+    .modal-img {
+        aspect-ratio: 3/4;
+        overflow: hidden;
+    }
+
+    .modal-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .modal-info {
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .modal-style {
+        color: var(--accent);
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .modal-info h2 {
+        font-size: 3.5rem;
+        margin: 0 0 25px 0;
+        font-family: var(--font-heading);
+    }
+
+    .modal-info p {
+        color: var(--text-muted);
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 40px;
+    }
+
+    @media (max-width: 800px) {
+        .modal-body {
+            grid-template-columns: 1fr;
+        }
+
+        .modal-info {
+            padding: 40px 30px;
+        }
+
+        .modal-info h2 {
+            font-size: 2.5rem;
+        }
+
+        .modal-img {
+            aspect-ratio: 1;
+        }
+    }
+</style>

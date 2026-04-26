@@ -1,0 +1,233 @@
+---
+
+---
+
+<section class="booking-section" id="book">
+    <div class="section-header">
+        <span class="subtitle">Get Inked</span>
+        <h2>Book Your Session</h2>
+    </div>
+
+    <div class="booking-container">
+        <div class="booking-info">
+            <h3>The Process</h3>
+            <ul class="process-list">
+                <li>
+                    <span class="num">01</span>
+                    <div>
+                        <h4>Submit Form</h4>
+                        <p>Tell us about your idea, size, and placement.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="num">02</span>
+                    <div>
+                        <h4>Consultation</h4>
+                        <p>We'll discuss the design and provide a quote.</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="num">03</span>
+                    <div>
+                        <h4>Deposit</h4>
+                        <p>Secure your date with a small deposit.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <form class="booking-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="John Stone"
+                        required
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="johnstone@gmail.com"
+                        required
+                    />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="artist">Preferred Artist</label>
+                <select id="artist">
+                    <option value="any">No preference</option>
+                    <option value="alex">Alex Black</option>
+                    <option value="mara">Mara Ink</option>
+                    <option value="jhon">Jhon Vein</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="idea">Your Idea & Placement</label>
+                <textarea
+                    id="idea"
+                    rows="4"
+                    placeholder="Describe your tattoo idea and where you want it..."
+                ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Inquiry</button>
+        </form>
+    </div>
+</section>
+
+<style>
+    .booking-section {
+        background: linear-gradient(to bottom, var(--bg), #080808);
+    }
+
+    .booking-container {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 80px;
+        align-items: start;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 30px;
+    }
+
+    .booking-info h3 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        font-family: var(--font-heading);
+        text-transform: uppercase;
+    }
+
+    .process-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .process-list li {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .process-list .num {
+        font-family: var(--font-heading);
+        font-size: 2.5rem;
+        color: var(--accent);
+        line-height: 1;
+        opacity: 0.5;
+    }
+
+    .process-list h4 {
+        font-size: 1.2rem;
+        margin: 0 0 5px 0;
+    }
+
+    .process-list p {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        margin: 0;
+    }
+
+    .booking-form {
+        background: var(--surface);
+        padding: 50px;
+        border: 1px solid var(--border);
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .form-group label {
+        display: block;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+        color: var(--text-muted);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 15px;
+        background: #151515;
+        border: 1px solid var(--border);
+        color: white;
+        font-family: var(--font-body);
+        font-size: 1rem;
+        transition: 0.3s;
+    }
+
+    .form-group select {
+        appearance: none;
+        -webkit-appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23a0a0a0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 15px center;
+        background-size: 18px;
+        padding-right: 45px;
+        cursor: pointer;
+    }
+
+    .form-group select:focus {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23d40000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+        background: #1a1a1a;
+    }
+
+    .submit-btn {
+        width: 100%;
+        padding: 18px;
+        background: var(--accent);
+        color: white;
+        border: none;
+        font-family: var(--font-heading);
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+        background: #f00;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(212, 0, 0, 0.3);
+    }
+
+    @media (max-width: 900px) {
+        .booking-container {
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+
+        .booking-form {
+            padding: 30px;
+        }
+
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
